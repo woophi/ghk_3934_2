@@ -63,7 +63,7 @@ const boxes: {
   },
   {
     price: 'Бесплатно',
-    title: 'Выбрать готвого ИИ-бота',
+    title: 'Выбрать готового ИИ-бота',
     bsText: (
       <>
         <Typography.TitleResponsive tag="h3" view="medium" font="system" weight="semibold">
