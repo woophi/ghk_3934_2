@@ -24,7 +24,7 @@ export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText }: Pr
     <>
       <div className={appSt.box}>
         <div className={appSt.rowImg}>
-          <Typography.TitleResponsive tag="h3" view="medium" font="system">
+          <Typography.TitleResponsive tag="h3" view="medium" font="system" weight="regular">
             {title}
           </Typography.TitleResponsive>
         </div>
