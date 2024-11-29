@@ -73,14 +73,14 @@ const banner = style({
   position: 'absolute',
   padding: '12px',
   borderRadius: '8px',
-  backgroundColor: '#E1E1E1',
+  backgroundColor: '#EBC6AD',
   zIndex: 1,
   right: '8px',
   top: '-12%',
-  maxWidth: '78px',
-  fontSize: '10px',
-  lineHeight: '10px',
-  width: '78px',
+  maxWidth: '93px',
+  fontSize: '14px',
+  fontWeight: 600,
+  width: '93px',
 });
 
 export const appSt = {

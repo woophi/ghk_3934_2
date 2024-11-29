@@ -1,4 +1,5 @@
 import { ButtonMobile } from '@alfalab/core-components/button/mobile';
+import { Gap } from '@alfalab/core-components/gap';
 import { List } from '@alfalab/core-components/list';
 import { Typography } from '@alfalab/core-components/typography';
 import { ReactNode, useState } from 'react';
@@ -15,7 +16,7 @@ const boxes: {
   bsText: ReactNode;
 }[] = [
   {
-    price: 'Стоимость до 1000 ₽',
+    price: 'Бесплатно',
     title: 'Создать бота самостоятельно',
     bsText: (
       <>
@@ -61,7 +62,7 @@ const boxes: {
     ),
   },
   {
-    price: 'Стоимость до 1000 ₽',
+    price: 'Бесплатно',
     title: 'Выбрать готвого ИИ-бота',
     bsText: (
       <>
@@ -109,7 +110,7 @@ const boxes: {
     ),
   },
   {
-    price: 'Стоимость по запросу',
+    price: 'Бесплатно',
     title: 'Заказать разработку индивидуального бота',
     bsText: (
       <>
@@ -322,6 +323,10 @@ export const App = () => {
             </>
           }
         />
+      </div>
+      <Gap size={96} />
+
+      <div className={appSt.bottomBtn}>
         <ButtonMobile block view="primary" onClick={createPreOrder}>
           Оформить предзаказ
         </ButtonMobile>
