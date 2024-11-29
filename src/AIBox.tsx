@@ -11,12 +11,16 @@ type Props = {
   moreInfoClick: () => void;
   preOrderClick: () => void;
   bsText: ReactNode;
+  preOrderClickBS: () => void;
+  backBS: () => void;
+  onCloseBS: () => void;
 };
 
-export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText }: Props) => {
+export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText, backBS, onCloseBS, preOrderClickBS }: Props) => {
   const [bsOpened, setOpenBS] = useState(false);
 
   const closeBs = () => {
+    onCloseBS();
     setOpenBS(false);
   };
 
@@ -40,7 +44,7 @@ export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText }: Pr
             block
             view="filled"
           >
-            Узнать больше
+            Подробнее
           </ButtonMobile>
           <ButtonMobile onClick={preOrderClick} style={{ padding: '0 .5rem' }} size="xs" block view="primary">
             Оформить предзаказ
@@ -60,6 +64,7 @@ export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText }: Pr
           <div className={appSt.rowBtns}>
             <ButtonMobile
               onClick={() => {
+                backBS();
                 setOpenBS(false);
               }}
               style={{ padding: '0 .5rem' }}
@@ -69,7 +74,7 @@ export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText }: Pr
             >
               Назад
             </ButtonMobile>
-            <ButtonMobile onClick={preOrderClick} style={{ padding: '0 .5rem' }} size="xs" block view="primary">
+            <ButtonMobile onClick={preOrderClickBS} style={{ padding: '0 .5rem' }} size="xs" block view="primary">
               Заказать
             </ButtonMobile>
           </div>

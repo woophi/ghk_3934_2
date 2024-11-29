@@ -14,6 +14,11 @@ const boxes: {
   title: string;
   price: string;
   bsText: ReactNode;
+  analyticsEventPreOrder: string;
+  analyticsEventInfo: string;
+  analyticsEventCloseBS: string;
+  analyticsEventBackBS: string;
+  analyticsEvenPreOrderBS: string;
 }[] = [
   {
     price: 'Бесплатно',
@@ -60,6 +65,11 @@ const boxes: {
         </List>
       </>
     ),
+    analyticsEventPreOrder: 'Make_robot_3934_click_var2',
+    analyticsEventInfo: 'Make_robot_info_3934_click_var2',
+    analyticsEvenPreOrderBS: 'Make_robot_order_3934_click_var2',
+    analyticsEventBackBS: 'Make_robot_back_3934_click_var2',
+    analyticsEventCloseBS: 'Make_robot_x_3934_click_var2',
   },
   {
     price: 'Бесплатно',
@@ -92,6 +102,11 @@ const boxes: {
         </List>
       </>
     ),
+    analyticsEventPreOrder: 'Made_robot_3934_click_var2',
+    analyticsEventInfo: 'Made_robot_info_3934_click_var2',
+    analyticsEvenPreOrderBS: 'Made_robot_order_3934_click_var2',
+    analyticsEventBackBS: 'Made_robot_back_3934_click_var2',
+    analyticsEventCloseBS: 'Made_robot_x_3934_click_var2',
   },
   {
     price: 'Бесплатно',
@@ -108,6 +123,11 @@ const boxes: {
         </List>
       </>
     ),
+    analyticsEventPreOrder: 'Outer_robot_3934_click_var2',
+    analyticsEventInfo: 'Outer_robot_info_3934_click_var2',
+    analyticsEvenPreOrderBS: 'Outer_robot_order_3934_click_var2',
+    analyticsEventBackBS: 'Outer_robot_back_3934_click_var2',
+    analyticsEventCloseBS: 'Outer_robot_x_3934_click_var2',
   },
   {
     price: 'Бесплатно',
@@ -140,13 +160,19 @@ const boxes: {
         </List>
       </>
     ),
+    analyticsEventPreOrder: 'Indiv_robot_3934_click_var2',
+    analyticsEventInfo: 'Indiv_robot_info_3934_click_var2',
+    analyticsEvenPreOrderBS: 'Indiv_robot_order_3934_click_var2',
+    analyticsEventBackBS: 'Indiv_robot_back_3934_click_var2',
+    analyticsEventCloseBS: 'Indiv_robot_x_3934_click_var2',
   },
 ];
 
 export const App = () => {
   const [thxShow, setThx] = useState(false);
 
-  const createPreOrder = () => {
+  const createPreOrder = (analyticsEvent: string) => {
+    window.gtag('event', analyticsEvent);
     setThx(true);
   };
 
@@ -159,7 +185,7 @@ export const App = () => {
       <img src={robotHb} width="100%" height={280} style={{ objectFit: 'cover' }} />
       <div className={appSt.container}>
         <Typography.TitleResponsive tag="h1" view="small" font="system" weight="semibold">
-          Торговые роботы на базе ИИ для инвестирования
+          Бесплатные торговые роботы на базе ИИ для инвестирования
         </Typography.TitleResponsive>
 
         <Typography.Text view="primary-medium">
@@ -176,7 +202,18 @@ export const App = () => {
         </Typography.TitleResponsive>
 
         {boxes.map(b => (
-          <AIBox key={b.title} {...b} moreInfoClick={console.debug} preOrderClick={createPreOrder} />
+          <AIBox
+            key={b.title}
+            {...b}
+            moreInfoClick={() => window.gtag('event', b.analyticsEventInfo)}
+            preOrderClick={() => createPreOrder(b.analyticsEventPreOrder)}
+            backBS={() => window.gtag('event', b.analyticsEventBackBS)}
+            onCloseBS={() => window.gtag('event', b.analyticsEventCloseBS)}
+            preOrderClickBS={() => {
+              window.gtag('event', b.analyticsEvenPreOrderBS);
+              setThx(true);
+            }}
+          />
         ))}
 
         <Typography.TitleResponsive style={{ marginTop: '1rem' }} tag="h2" view="small" font="system" weight="semibold">
@@ -184,6 +221,7 @@ export const App = () => {
         </Typography.TitleResponsive>
 
         <MoreInfo
+          analyticsEvent="FAQ1_3934_click_var2"
           title="Что это?"
           text={
             <>
@@ -207,6 +245,7 @@ export const App = () => {
           }
         />
         <MoreInfo
+          analyticsEvent="FAQ2_3934_click_var2"
           title="Зачем нужны торговые роботы?"
           text={
             <>
@@ -217,6 +256,7 @@ export const App = () => {
           }
         />
         <MoreInfo
+          analyticsEvent="FAQ3_3934_click_var2"
           title="Кому подойдет?"
           text={
             <>
@@ -237,6 +277,7 @@ export const App = () => {
           }
         />
         <MoreInfo
+          analyticsEvent="FAQ4_3934_click_var2"
           title="Какие преимущества?"
           text={
             <>
@@ -266,6 +307,7 @@ export const App = () => {
           }
         />
         <MoreInfo
+          analyticsEvent="FAQ5_3934_click_var2"
           title="Как это работает?"
           text={
             <>
@@ -327,7 +369,7 @@ export const App = () => {
       <Gap size={96} />
 
       <div className={appSt.bottomBtn}>
-        <ButtonMobile block view="primary" onClick={createPreOrder}>
+        <ButtonMobile block view="primary" onClick={() => createPreOrder('Order_main_3934_click_var2')}>
           Оформить предзаказ
         </ButtonMobile>
       </div>
