@@ -70,7 +70,7 @@ export const AIBox = ({ moreInfoClick, preOrderClick, price, title, bsText }: Pr
               Назад
             </ButtonMobile>
             <ButtonMobile onClick={preOrderClick} style={{ padding: '0 .5rem' }} size="xs" block view="primary">
-              Предзаказ
+              Заказать
             </ButtonMobile>
           </div>
         }
